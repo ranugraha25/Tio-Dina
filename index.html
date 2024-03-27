@@ -653,18 +653,18 @@ function getParameterByName(name, url) {
 }
 
 // Fungsi untuk mengubah teks pada elemen "nama-tamu" berdasarkan parameter yang diberikan
-function setNamaTamuFromURL() {
-    var namaTamuElement = document.getElementById('nama-tamu');
-    var namaTamuURL = getParameterByName('to');
-    if (namaTamuElement && namaTamuURL) {
-        namaTamuElement.textContent = namaTamuURL;
-    }
-}
+// function setNamaTamuFromURL() {
+//     var namaTamuElement = document.getElementById('nama-tamu');
+//     var namaTamuURL = getParameterByName('to');
+//     if (namaTamuElement && namaTamuURL) {
+//         namaTamuElement.textContent = namaTamuURL;
+//     }
+// }
 
-// Memanggil fungsi setNamaTamuFromURL saat halaman dimuat
-document.addEventListener('DOMContentLoaded', function() {
-    setNamaTamuFromURL();
-});
+// // Memanggil fungsi setNamaTamuFromURL saat halaman dimuat
+// document.addEventListener('DOMContentLoaded', function() {
+//     setNamaTamuFromURL();
+// });
     </script>
     
 
