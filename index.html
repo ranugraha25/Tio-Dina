@@ -65,7 +65,32 @@
 
     <!-- App -->
     <link rel="stylesheet" href="./css/app.css">
-    <script src="./js/app.js" defer></script>
+    <script src="./js/app.js" defer>
+        // Fungsi untuk mendapatkan nilai parameter dari URL
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Fungsi untuk mengubah teks pada elemen "nama-tamu" berdasarkan parameter yang diberikan
+function setNamaTamuFromURL() {
+    var namaTamuElement = document.getElementById('nama-tamu');
+    var namaTamuURL = getParameterByName('to');
+    if (namaTamuElement && namaTamuURL) {
+        namaTamuElement.textContent = namaTamuURL;
+    }
+}
+
+// Memanggil fungsi setNamaTamuFromURL saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    setNamaTamuFromURL();
+});
+    </script>
 </head>
 
 <body data-email="user@example.com" data-password="12345678" data-url="https://api.ulems.my.id/" style="overflow-y: hidden;">
