@@ -590,23 +590,43 @@
     <!-- Welcome Page -->
     <div class="loading-page" id="welcome" style="opacity: 1;">
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
-
+    
             <div class="text-center">
-                <h1 class="font-esthetic mb-4" style="font-size: 2.5rem;">The Wedding Of</h1>
-
+                <h1 class="font-esthetic mb-4" style="font-size: 2rem;">The Wedding Of</h1>
+                <h1 class="font-esthetic my-4" style="font-size: 2rem;">Tio & Dina</h1>
+    
                 <div class="img-crop border border-3 border-light shadow mb-4 mx-auto">
                     <img src="./assets/images/bg.jpeg" alt="bg">
                 </div>
-
-                <h1 class="font-esthetic my-4" style="font-size: 2.5rem;">Tio & Dina</h1>
-                <div id="nama-tamu"></div>
-
-                <button type="button" class="btn btn-light shadow rounded-4 mt-4" onclick="util.buka(this)">
-                    <i class="fa-solid fa-envelope-open me-2"></i>Buka Undangan
+    
+                <h1 class="font-esthetic mb-4" style="font-size: 1rem;">Turut Mengundang :</h1>
+                <div id="nama-tamu">
+                    <input type="text" id="input-nama-tamu" class="form-control mb-3" placeholder="Masukkan Nama Tamu">
+                </div>
+    
+                <button type="button" class="btn btn-light shadow rounded-4 mt-4" onclick="updateNamaTamu()">
+                    <i class="fa-solid fa-envelope-open me-2"></i>Update Nama Tamu
                 </button>
             </div>
         </div>
     </div>
+
+    <script>
+        // Fungsi untuk memperbarui nama tamu berdasarkan nilai dari parameter "nama" di URL
+        function updateNamaTamu() {
+            const inputNamaTamu = document.getElementById('input-nama-tamu');
+            const urlParams = new URLSearchParams(window.location.search);
+            const namaTamu = urlParams.get('nama');
+            if (namaTamu) {
+                inputNamaTamu.value = namaTamu;
+            } else {
+                alert("Parameter 'nama' tidak ditemukan dalam URL.");
+            }
+        }
+
+        // Panggil fungsi updateNamaTamu saat halaman dimuat
+        window.onload = updateNamaTamu;
+    </script>
 
     <!-- Audio Button -->
     <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.music(this)" data-status="true" data-url="./assets/music/sound.mp3">
